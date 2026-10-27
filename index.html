@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jvan Pack Request a Quote</title>
+<meta name="description" content="Request a packaging machine or line quote from Jvan Pack. Send your product, container and output for a suggested configuration and indicative price.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<style>
+/* Layout concept: Jvan Pack site system (navy / white / orange, engineering-drawing detail).
+   Request page = hero with live line drawing, stepped form reference with a sticky step rail,
+   looping prototype visuals for the form, uploads and the reply path. */
+:root{
+  --bg:#ffffff; --bg-alt:#f2f4f8; --surface:#ffffff;
+  --ink:#1b2540; --ink-soft:#4f5b73; --heading:#13234a;
+  --line:#dce2eb; --line-strong:#c3ccda;
+  --navy:#172a52; --navy-deep:#0f1c38;
+  --on-navy:#ffffff; --on-navy-soft:#b9c4d8; --navy-line:rgba(255,255,255,.14);
+  --orange:#e8632b; --orange-hover:#cf521c; --link:#bf4b15;
+  --header-bg:#ffffff; --header-ink:#1a2b4c; --logo-ink:#17305e;
+  --th-bg:#172a52; --row-alt:#f7f8fb; --ok:#1f8a5b;
+  --focus:#e8632b;
+  --font-sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-cond:"IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1730; --bg-alt:#111d3a; --surface:#14213f;
+    --ink:#d9e0ee; --ink-soft:#9eabc4; --heading:#f2f5fb;
+    --line:#24345a; --line-strong:#33466f;
+    --navy:#13244a; --navy-deep:#0a1226;
+    --orange:#ec6a32; --orange-hover:#f27c48; --link:#f3925f;
+    --header-bg:#0d1730; --header-ink:#e6ebf6; --logo-ink:#f2f5fb;
+    --th-bg:#1b2d55; --row-alt:#111d3a; --ok:#4cc48f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1730; --bg-alt:#111d3a; --surface:#14213f;
+  --ink:#d9e0ee; --ink-soft:#9eabc4; --heading:#f2f5fb;
+  --line:#24345a; --line-strong:#33466f;
+  --navy:#13244a; --navy-deep:#0a1226;
+  --orange:#ec6a32; --orange-hover:#f27c48; --link:#f3925f;
+  --header-bg:#0d1730; --header-ink:#e6ebf6; --logo-ink:#f2f5fb;
+  --th-bg:#1b2d55; --row-alt:#111d3a; --ok:#4cc48f;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--navy-deep);scroll-padding-top:calc(env(safe-area-inset-top, 0px) + 150px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.62 var(--font-sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:60;background:var(--navy-deep)}
+img,svg{max-width:100%}
+p{margin:0 0 1em}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.wrap{width:100%;max-width:1212px;margin:0 auto;padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px))}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--orange);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none}
+.skip-link:focus{top:calc(env(safe-area-inset-top, 0px) + 12px)}
+
+/* buttons and link lines */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:2px;border:1.5px solid transparent;font-family:var(--font-cond);font-weight:600;font-size:16.5px;line-height:1.1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .15s ease,border-color .15s ease}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-hover)}
+.btn-line-light{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-line-light:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.btn-line{border-color:var(--line-strong);color:var(--heading);background:var(--surface)}
+.btn-line:hover{border-color:var(--heading)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:15.5px}
+.inline-link{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.inline-link:hover{color:var(--orange-hover);text-decoration-thickness:2px}
+
+/* top bar */
+.topbar{background:var(--navy-deep);color:#d5dcea;font-size:13.5px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:38px}
+.topbar-co{margin:0;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.topbar-links{display:flex;align-items:center;gap:18px;margin:0;padding:0;list-style:none}
+.topbar a{color:#d5dcea;text-decoration:none}
+.topbar a:hover{color:#fff;text-decoration:underline}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:50;background:var(--header-bg);border-bottom:1px solid var(--line)}
+.nav-row{display:flex;align-items:center;gap:32px;min-height:76px}
+.brand{display:inline-flex;align-items:center;gap:11px;color:var(--logo-ink);text-decoration:none;font-family:var(--font-cond);font-weight:700;font-size:23px;flex-shrink:0}
+.brand svg{width:32px;height:32px;display:block}
+.primary-nav ul{display:flex;align-items:center;gap:26px;margin:0;padding:0;list-style:none}
+.primary-nav a{display:block;padding:8px 0;color:var(--header-ink);text-decoration:none;font-weight:500;font-size:15.5px;border-bottom:2px solid transparent}
+.primary-nav a:hover{color:var(--orange)}
+.primary-nav a[aria-current="page"]{border-bottom-color:var(--orange)}
+.nav-cta{margin-left:auto}
+.nav-cta-mobile{display:none}
+.menu-toggle{display:none;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid var(--line-strong);border-radius:2px;background:transparent;color:var(--header-ink);cursor:pointer}
+.menu-toggle svg{width:22px;height:22px}
+.menu-toggle .i-close{display:none}
+.menu-toggle[aria-expanded="true"] .i-open{display:none}
+.menu-toggle[aria-expanded="true"] .i-close{display:block}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--navy);color:var(--on-navy)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(90deg,transparent 0%,#000 55%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 55%)}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:56px;align-items:center;padding:72px 0 56px}
+.hero-grid > *{min-width:0}
+.eyebrow{margin:0 0 18px;font-size:14.5px;font-weight:500;color:var(--on-navy-soft)}
+.hero h1{margin:0 0 22px;font-family:var(--font-cond);font-weight:600;font-size:clamp(2.2rem,4.2vw,3.35rem);line-height:1.06;letter-spacing:-.012em;max-width:19ch;color:#fff;text-wrap:balance}
+.hero-body{color:#e3e9f4;max-width:58ch;font-size:18px;line-height:1.6}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.drawing{position:relative;border:1px solid var(--navy-line);padding:22px 18px 10px;background:rgba(8,16,36,.25);color:#fff}
+.drawing::before,.drawing::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--orange);border-style:solid}
+.drawing::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.drawing::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.drawing svg{display:block;width:100%;height:auto}
+.drawing-cap{display:flex;justify-content:space-between;gap:12px;margin:6px 2px 10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--on-navy-soft)}
+.ln{fill:none;stroke:rgba(255,255,255,.62);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ln-soft{fill:none;stroke:rgba(255,255,255,.3);stroke-width:1.2}
+.ln-acc{fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round}
+.fill-acc{fill:var(--orange)}
+.fill-w{fill:rgba(255,255,255,.12)}
+.st-label{font-family:var(--font-mono);font-size:11.5px;fill:rgba(255,255,255,.72);text-anchor:middle;letter-spacing:.02em}
+.spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1px solid var(--navy-line)}
+.spec > div{padding:22px 24px 8px 0;min-width:0}
+.spec > div + div{padding-left:24px;border-left:1px solid var(--navy-line)}
+.spec dt{font-size:14px;color:var(--on-navy-soft);margin-bottom:6px}
+.spec dd{margin:0;font-family:var(--font-cond);font-weight:600;font-size:clamp(1.25rem,2vw,1.7rem);line-height:1.18;color:#fff}
+.spec-note{margin:0;padding:6px 0 28px;font-size:14.5px;color:var(--on-navy-soft)}
+
+/* sections */
+.section{padding:88px 0}
+.section-alt{background:var(--bg-alt)}
+.section-navy{background:var(--navy);color:var(--on-navy)}
+.sec-head{max-width:780px;margin-bottom:40px}
+.sec-head h2::before{content:"";display:block;width:16px;height:16px;margin-bottom:18px;background:var(--orange);clip-path:polygon(50% 0,100% 37%,84% 100%,16% 100%,0 37%)}
+h2{margin:0 0 16px;font-family:var(--font-cond);font-weight:600;font-size:clamp(1.85rem,3vw,2.5rem);line-height:1.12;letter-spacing:-.008em;color:var(--heading);text-wrap:balance}
+.section-navy h2{color:#fff}
+.sec-head p{margin:0;font-size:18px;color:var(--ink-soft);max-width:66ch}
+.section-navy .sec-head p{color:var(--on-navy-soft)}
+h3{margin:0 0 10px;font-size:20px;line-height:1.3;font-weight:600;color:var(--heading)}
+
+/* tables */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
+.data{width:100%;min-width:640px;border-collapse:collapse;font-size:15.5px;line-height:1.5}
+.data thead th{background:var(--th-bg);color:#fff;text-align:left;font-weight:600;font-size:14.5px;padding:13px 18px;white-space:nowrap}
+.data td,.data tbody th{padding:14px 18px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.data tbody th{font-weight:600;color:var(--heading);width:24%}
+.data tbody tr:nth-child(even) > *{background:var(--row-alt)}
+.data td.mono,.mono{font-family:var(--font-mono);font-size:13.5px}
+
+/* 2. form in brief */
+.brief-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:64px;align-items:center}
+.brief-list{margin:0 0 24px;padding:0;list-style:none;border-top:1px solid var(--line)}
+.brief-list li{padding:20px 0;border-bottom:1px solid var(--line)}
+.brief-list strong{display:block;margin-bottom:4px;font-family:var(--font-cond);font-weight:600;font-size:21px;color:var(--heading)}
+.brief-list span{color:var(--ink)}
+
+/* device prototype */
+.device{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(15,28,56,.45)}
+.device-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--bg-alt);border-bottom:1px solid var(--line)}
+.device-bar i{width:9px;height:9px;border-radius:50%;background:var(--line-strong);display:block}
+.device-url{margin-left:10px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.device-body{position:relative;padding:22px 22px 18px;min-height:372px}
+.dev-step{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+.dev-prog{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:18px}
+.dev-prog span{height:4px;background:var(--line);border-radius:2px;transition:background-color .35s ease}
+.dev-prog span.on{background:var(--orange)}
+.dev-title{margin:0 0 14px;font-family:var(--font-cond);font-weight:600;font-size:23px;color:var(--heading)}
+.dev-rows{display:grid;gap:14px}
+.dev-row{min-height:58px}
+.dev-label{display:block;margin-bottom:5px;font-size:12.5px;font-weight:600;color:var(--ink-soft)}
+.dev-input{display:flex;align-items:center;min-height:38px;padding:0 12px;border:1px solid var(--line-strong);border-radius:3px;font-size:15px;color:var(--heading);background:var(--bg)}
+.dev-input .caret{display:inline-block;width:1.5px;height:17px;margin-left:1px;background:var(--orange);animation:blink 1s steps(1) infinite}
+.dev-chips{display:flex;flex-wrap:wrap;gap:7px}
+.dev-chip{padding:7px 12px;border:1px solid var(--line-strong);border-radius:3px;font-size:13.5px;color:var(--ink);background:var(--bg);transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.dev-chip.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+.dev-file{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;min-height:38px;padding:0 12px;border:1px dashed var(--line-strong);border-radius:3px;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft)}
+.dev-file .bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.dev-file .bar b{display:block;height:100%;width:0;background:var(--orange);transition:width .9s ease}
+.dev-file .ok{color:var(--ok);opacity:0;transition:opacity .25s ease}
+.dev-done{position:absolute;inset:0;display:grid;place-content:center;gap:12px;padding:28px;text-align:center;background:var(--surface);opacity:0;pointer-events:none;transition:opacity .4s ease}
+.dev-done.show{opacity:1}
+.dev-done svg{width:46px;height:46px;margin:0 auto;fill:none;stroke:var(--ok);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.dev-done p{margin:0;font-size:15px;color:var(--heading);max-width:36ch}
+.proto-cap{margin:12px 2px 0;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-soft)}
+@keyframes blink{50%{opacity:0}}
+
+/* 3. routes */
+.route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);background:var(--surface)}
+.route{display:flex;flex-direction:column;gap:14px;padding:30px 28px 28px;min-width:0}
+.route + .route{border-left:1px solid var(--line)}
+.route-name{margin:0;font-family:var(--font-cond);font-weight:600;font-size:27px;line-height:1.1;color:var(--heading)}
+.route dl{margin:0;display:grid;gap:12px}
+.route dt{font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:2px}
+.route dd{margin:0}
+.route-actions{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:10px}
+.route-actions .btn{width:100%;min-height:46px;padding:11px 18px;white-space:normal;text-align:center}
+
+/* 4. form reference */
+.form-layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:52px;align-items:start}
+.step-rail{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 100px);margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.step-rail a{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);color:var(--ink-soft);text-decoration:none;font-size:14.5px;line-height:1.35}
+.step-rail a b{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--ink-soft)}
+.step-rail a:hover{color:var(--heading)}
+.step-rail a[aria-current="true"]{color:var(--heading);font-weight:600}
+.step-rail a[aria-current="true"] b{color:var(--orange)}
+.form-main{min-width:0;display:grid;gap:56px}
+.step{min-width:0}
+.step-head{display:flex;align-items:flex-end;gap:18px;padding-bottom:14px;border-bottom:2px solid var(--heading);margin-bottom:16px}
+.step-num{font-family:var(--font-cond);font-weight:600;font-size:54px;line-height:.9;color:transparent;-webkit-text-stroke:1.4px var(--orange);flex-shrink:0}
+.step-head h3{margin:0;font-family:var(--font-cond);font-size:27px;line-height:1.1}
+.step-head small{display:block;margin-bottom:4px;font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);font-weight:400}
+.why{margin:0 0 16px;max-width:70ch}
+.why b{color:var(--heading)}
+.note-box{margin:0 0 16px;padding:16px 20px;background:var(--bg-alt);border:1px solid var(--line);max-width:74ch}
+.note-box p{margin:0 0 .6em}
+.note-box p:last-child{margin:0}
+.opt-details{margin-top:22px;border:1px solid var(--line);background:var(--surface)}
+.opt-details summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;cursor:pointer;font-family:var(--font-cond);font-weight:600;font-size:19px;color:var(--heading);list-style:none}
+.opt-details summary::-webkit-details-marker{display:none}
+.opt-details summary::after{content:"+";font-family:var(--font-mono);font-size:20px;color:var(--orange)}
+.opt-details[open] summary::after{content:"\2212"}
+.opt-details .table-wrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.ack{display:flex;gap:14px;align-items:flex-start;margin-top:26px;padding:18px 20px;border:1px solid var(--line-strong);background:var(--surface)}
+.ack-box{flex-shrink:0;width:22px;height:22px;margin-top:2px;border:1.5px solid var(--heading);border-radius:2px;display:grid;place-items:center}
+.ack-box svg{width:14px;height:14px;fill:none;stroke:var(--orange);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ack p{margin:0 0 4px;font-weight:600;color:var(--heading)}
+.submit-row{margin-top:22px;display:grid;gap:12px;justify-items:start}
+.submit-row p{margin:0;max-width:64ch;color:var(--ink-soft);font-size:15.5px}
+
+/* 5. files */
+.files-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:start}
+.files-grid > *{min-width:0}
+.upload-panel{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;padding:18px 18px 8px;box-shadow:0 18px 40px -26px rgba(15,28,56,.45)}
+.up-head{display:flex;justify-content:space-between;margin-bottom:8px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+.up-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
+.up-ico{width:34px;height:40px;border:1.5px solid var(--heading);border-radius:2px;display:grid;place-items:center;font-family:var(--font-mono);font-size:9.5px;font-weight:500;color:var(--heading)}
+.up-name{font-size:14.5px;font-weight:500;color:var(--heading);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.up-bar{height:4px;margin-top:7px;background:var(--line);border-radius:2px;overflow:hidden}
+.up-bar b{display:block;height:100%;width:100%;background:var(--orange)}
+.up-step{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft)}
+.files-after{margin-top:24px;max-width:70ch}
+
+/* 6. price */
+.price-lead{margin:0 0 28px;max-width:74ch;font-size:18px}
+.price-foot{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:30px;padding:26px 30px;background:var(--bg-alt);border:1px solid var(--line);border-left:4px solid var(--orange)}
+.price-foot p{margin:0;max-width:62ch}
+.price-foot .btn{flex-shrink:0;white-space:normal;text-align:center;padding-top:12px;padding-bottom:12px}
+
+/* 7. next */
+.next-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:start}
+.next-grid > *{min-width:0}
+.reply-steps{position:relative;margin:0 0 30px;padding:0;list-style:none;counter-reset:rs}
+.reply-steps::before{content:"";position:absolute;left:19px;top:22px;bottom:22px;border-left:2px dashed var(--line-strong)}
+.reply-steps li{position:relative;padding:0 0 22px 62px;min-height:52px;transition:opacity .3s ease}
+.reply-steps li::before{counter-increment:rs;content:counter(rs);position:absolute;left:0;top:0;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--bg-alt);border:1.5px solid var(--line-strong);font-family:var(--font-cond);font-weight:600;font-size:17px;color:var(--heading);transition:background-color .3s ease,border-color .3s ease,color .3s ease}
+.reply-steps li.on::before{background:var(--orange);border-color:var(--orange);color:#fff}
+.reply-steps strong{color:var(--heading)}
+.reply-steps li:not(.on){opacity:.82}
+.inline-note{margin:0 0 18px;padding:18px 22px;background:var(--surface);border:1px solid var(--line)}
+.inline-note p{margin:0}
+.inline-note strong{color:var(--heading)}
+.confirm{margin:22px 0 0;padding:20px 22px;background:var(--navy);color:#fff;border-radius:2px}
+.confirm small{display:block;margin-bottom:8px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--on-navy-soft)}
+.confirm p{margin:0;font-size:16.5px}
+.layout-fig .drawing{padding:18px 14px 8px}
+.stage .box{stroke-dasharray:1;stroke-dashoffset:0}
+.stamp{opacity:1}
+@media (prefers-reduced-motion: no-preference){
+  .stage .box{animation:draw 11s ease-in-out infinite;animation-delay:calc(var(--i) * .7s)}
+  .stage .stamp{animation:stamp 11s ease-in-out infinite}
+}
+@keyframes draw{0%{stroke-dashoffset:1}12%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@keyframes stamp{0%,72%{opacity:0;transform:scale(1.25)}80%,92%{opacity:1;transform:scale(1)}100%{opacity:0}}
+.stamp{transform-box:fill-box;transform-origin:center}
+
+/* 8. privacy */
+.privacy-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.privacy-grid > *{min-width:0}
+.vault{display:grid;place-items:center;padding:34px 20px;background:var(--navy);border:1px solid var(--navy-line);position:relative}
+.vault svg{width:100%;max-width:340px;height:auto;display:block}
+.vault-cap{margin:12px 0 0;font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--on-navy-soft);text-align:center}
+@media (prefers-reduced-motion: no-preference){
+  .doc-a{animation:slidein 6s ease-in-out infinite}
+  .doc-b{animation:slidein 6s ease-in-out infinite .6s}
+  .doc-c{animation:slidein 6s ease-in-out infinite 1.2s}
+  .lock-shackle{animation:lock 6s ease-in-out infinite}
+}
+@keyframes slidein{0%{transform:translateX(-70px);opacity:0}18%,70%{transform:translateX(0);opacity:1}86%,100%{transform:translateX(70px);opacity:0}}
+@keyframes lock{0%,22%{transform:translateY(-7px)}34%,86%{transform:translateY(0)}100%{transform:translateY(-7px)}}
+.lock-shackle{transform-box:fill-box}
+
+/* 9. FAQ */
+.faq{max-width:900px;border-top:1px solid var(--line-strong)}
+.faq details{border-bottom:1px solid var(--line-strong)}
+.faq summary{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 2px;cursor:pointer;list-style:none;font-family:var(--font-cond);font-weight:600;font-size:21px;line-height:1.3;color:var(--heading)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex-shrink:0;font-family:var(--font-mono);font-size:22px;line-height:1;color:var(--orange)}
+.faq details[open] summary::after{content:"\2212"}
+.faq-a{padding:0 2px 22px;max-width:74ch}
+.faq-a p{margin:0 0 10px}
+.faq-all{margin-top:26px}
+
+/* 10. contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.contact-grid > *{min-width:0}
+.contact-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line-strong)}
+.contact-list li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--line-strong)}
+.contact-list .k{font-size:14px;font-weight:600;color:var(--ink-soft)}
+.contact-list .v{color:var(--heading);font-weight:500;overflow-wrap:anywhere}
+.contact-list .d{grid-column:2}
+.company{margin:0 0 14px;font-family:var(--font-cond);font-weight:600;font-size:26px;color:var(--heading)}
+.contact-tz{margin:22px 0 0}
+
+/* 11. CTA */
+.cta{position:relative;overflow:hidden;padding:88px 0}
+.cta-inner{max-width:760px}
+.cta h2{margin-bottom:16px}
+.cta p.body{font-size:19px;color:#e3e9f4;max-width:60ch}
+.cta .hero-actions{margin-top:26px}
+.micro{margin:22px 0 0;font-size:14.5px;color:var(--on-navy-soft)}
+
+/* footer */
+.site-footer{background:var(--navy-deep);color:#c4cde0;font-size:15px;padding-bottom:env(safe-area-inset-bottom, 0px)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:44px;padding:64px 0 48px}
+.foot-grid > *{min-width:0}
+.foot-brand{display:inline-flex;align-items:center;gap:11px;margin-bottom:16px;color:#fff;text-decoration:none;font-family:var(--font-cond);font-weight:700;font-size:23px}
+.foot-brand svg{width:32px;height:32px}
+.site-footer h4{margin:0 0 14px;font-family:var(--font-mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8f9cb9}
+.site-footer ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.site-footer a{color:#e6ebf6;text-decoration:none}
+.site-footer a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:4px}
+.site-footer address{font-style:normal;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding:22px 0 26px;border-top:1px solid var(--navy-line);font-size:13.5px;color:#8f9cb9}
+.foot-bottom p{margin:0}
+
+/* responsive */
+@media (max-width:1080px){
+  .primary-nav ul{gap:18px}
+  .form-layout{grid-template-columns:200px minmax(0,1fr);gap:36px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media (max-width:920px){
+  .hero-grid,.brief-grid,.files-grid,.next-grid,.privacy-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .hero-grid{padding:48px 0 40px}
+  .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spec > div:nth-child(3){padding-left:0;border-left:0}
+  .spec > div:nth-child(n+3){border-top:1px solid var(--navy-line)}
+  .route-grid{grid-template-columns:minmax(0,1fr)}
+  .route + .route{border-left:0;border-top:1px solid var(--line)}
+  .form-layout{grid-template-columns:minmax(0,1fr);gap:28px}
+  .step-rail{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 76px);z-index:20;display:flex;gap:0;overflow-x:auto;border:0;background:var(--bg);border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .step-rail li{flex-shrink:0}
+  .step-rail a{grid-template-columns:auto;padding:12px 14px;border:0;white-space:nowrap}
+  .step-rail a span{display:none}
+  .step-rail a b{font-size:12.5px}
+  .price-foot{flex-direction:column;align-items:flex-start}
+  .nav-cta{display:none}
+  .menu-toggle{display:inline-flex;margin-left:auto}
+  .primary-nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--header-bg);border-bottom:1px solid var(--line);padding:8px max(24px, env(safe-area-inset-left, 0px)) 22px}
+  .primary-nav.open{display:block}
+  .primary-nav ul{flex-direction:column;align-items:stretch;gap:0}
+  .primary-nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav-cta-mobile{display:block;margin-top:18px}
+  .nav-cta-mobile .btn{width:100%}
+  .nav-row{gap:16px}
+}
+@media (max-width:600px){
+  .section{padding:60px 0}
+  .topbar-links li:not(:first-child){display:none}
+  .topbar-co{font-size:11px}
+  .hero-actions .btn{width:100%}
+  .step-num{font-size:42px}
+  .contact-list li{grid-template-columns:minmax(0,1fr)}
+  .contact-list .d{grid-column:1}
+  .foot-grid{grid-template-columns:minmax(0,1fr)}
+  .device-body{padding:18px 16px 14px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <p class="topbar-co">Wenzhou Jvan Machinery Co., Ltd.</p>
+    <ul class="topbar-links">
+      <li><a href="https://wa.me/8618358756313">WhatsApp +86-183-5875-6313</a></li>
+      <li><a href="mailto:jvan@jvanpack.com">jvan@jvanpack.com</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="https://www.jvanpack.com/" aria-label="Jvan Pack home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1.5 30.5 12 25.5 30h-19L1.5 12z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 9.5 23 14.8 20.6 23.5h-9.2L9 14.8z" fill="#e8632b"/></svg>
+      Jvan Pack
+    </a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="https://www.jvanpack.com/products/">Products</a></li>
+        <li><a href="https://www.jvanpack.com/complete-lines/">Complete Lines</a></li>
+        <li><a href="https://www.jvanpack.com/solutions/">Solutions</a></li>
+        <li><a href="https://www.jvanpack.com/about/">About</a></li>
+        <li><a href="https://www.jvanpack.com/support/">Support</a></li>
+        <li><a href="https://www.jvanpack.com/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-cta-mobile"><a class="btn btn-primary" href="#quote-form" aria-current="page">Request a Quote</a></div>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#quote-form" aria-current="page">Request a Quote</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section class="hero on-navy" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Request a Quote · Wenzhou Jvan Machinery Co., Ltd.</p>
+        <h1 id="h1">Request a packaging machine quote with a six-step project brief</h1>
+        <p class="hero-body">Tell us what you pack, what it goes into, how many units you need per hour and where the machine will stand. Those four answers let our engineers recommend a machine or a full line, and our sales team works beside them, so your technical details reach the people who specify the equipment. Five answers are required, together with a privacy acknowledgement. Anything you cannot answer yet can wait; we will ask for it later.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#quote-form">Submit Your Requirements</a>
+          <a class="btn btn-line-light" href="https://wa.me/8618358756313">Message us on WhatsApp</a>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <div class="drawing" role="img" aria-label="Animated drawing of a filling line: bottles are filled, capped and labeled as they pass along a conveyor.">
+          <div class="drawing-cap"><span>Prototype · liquid filling line</span><span>Live</span></div>
+          <svg id="lineSvg" viewBox="0 0 560 300" aria-hidden="true">
+            <!-- infeed -->
+            <path class="ln-soft" d="M20 232h520M20 218h520"/>
+            <path class="ln" d="M20 218h520v14H20z"/>
+            <g class="ln-soft"><path d="M60 232v22M180 232v22M300 232v22M420 232v22M520 232v22"/></g>
+            <!-- filler -->
+            <path class="ln" d="M150 30h80v34l-14 18h-52l-14-18z"/>
+            <path class="ln-soft" d="M190 82v40"/>
+            <rect class="ln" x="184" y="118" width="12" height="22" rx="2"/>
+            <path class="ln-acc" id="stream" d="M190 140v52" style="opacity:0"/>
+            <!-- capper -->
+            <path class="ln" d="M290 28h60v30h-60z"/>
+            <g id="capHead"><path class="ln" d="M312 58h16v36h-16z"/><path class="ln" d="M306 94h28v10h-28z"/></g>
+            <!-- labeler -->
+            <path class="ln" d="M400 92h60v70h-60z"/>
+            <circle class="ln-soft" cx="430" cy="127" r="20"/>
+            <circle class="fill-acc" cx="430" cy="127" r="4"/>
+            <g id="bottles"></g>
+            <text class="st-label" x="60" y="278">INFEED</text>
+            <text class="st-label" x="190" y="278">FILLING</text>
+            <text class="st-label" x="320" y="278">CAPPING</text>
+            <text class="st-label" x="430" y="278">LABELING</text>
+            <text class="st-label" x="520" y="296">OUT</text>
+            <g transform="translate(18 14)"><path class="ln-soft" d="M0 0h22v22H0z"/><path class="ln-acc" d="M4 11h14M11 4v14"/></g>
+          </svg>
+        </div>
+      </figure>
+    </div>
+    <dl class="spec">
+      <div><dt>Form steps</dt><dd>6</dd></div>
+      <div><dt>Required answers</dt><dd>5, plus privacy acknowledgement</dd></div>
+      <div><dt>First reply</dt><dd>Usually within one working day</dd></div>
+      <div><dt>What comes back</dt><dd>Suggested configuration and indicative price</dd></div>
+    </dl>
+    <p class="spec-note">A formal quotation follows once the specification is agreed.</p>
+  </div>
+</section>
+
+<!-- 2. THE FORM IN BRIEF -->
+<section class="section" id="brief" aria-labelledby="h-brief">
+  <div class="wrap">
+    <div class="brief-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:24px"><h2 id="h-brief">The form in brief</h2></div>
+        <ul class="brief-list">
+          <li><strong>Six steps, one brief.</strong><span>Product, container, closure and label, output, site and utilities, then commercial details and your contact information.</span></li>
+          <li><strong>Five required answers.</strong><span>The machine or line you are asking about, your product name, your name, your email and your country. Everything else is optional.</span></li>
+          <li><strong>A pre-filled starting point.</strong><span>If you arrive from a machine or line page, the form selects it for you. Change it if it is wrong.</span></li>
+          <li><strong>A clear recommendation.</strong><span>We send a suggested configuration with the reasons behind it, an indicative price and a delivery estimate. When a simpler machine meets your needs, we say so.</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#quote-form">Request a packaging machine quote</a>
+      </div>
+      <figure style="margin:0">
+        <div class="device" id="device" role="img" aria-label="Animated prototype of the six-step quote form being filled in with example answers.">
+          <div class="device-bar"><i></i><i></i><i></i><span class="device-url">jvanpack.com/request-a-quote/</span></div>
+          <div class="device-body">
+            <div class="dev-step"><span id="devStep">Step 1 of 6</span><span>Required *</span></div>
+            <div class="dev-prog" id="devProg"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <h3 class="dev-title" id="devTitle">Product properties</h3>
+            <div class="dev-rows" id="devRows"></div>
+            <div class="dev-done" id="devDone">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M14 25l7 7 13-15"/></svg>
+              <p>Thank you. Your project brief has reached our team in Wenzhou. We usually reply within one working day.</p>
+            </div>
+          </div>
+        </div>
+        <p class="proto-cap">PROTOTYPE · EXAMPLE ANSWERS</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 3. THREE WAYS TO ASK -->
+<section class="section section-alt" id="routes" aria-labelledby="h-routes">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-routes">Three ways to ask, depending on what you have ready</h2>
+      <p>Not every project has a full brief yet. Choose the route that matches where you are.</p>
+    </div>
+    <div class="route-grid">
+      <article class="route">
+        <h3 class="route-name">Full six-step brief</h3>
+        <dl>
+          <div><dt>Best when</dt><dd>You know your product, container and output</dd></div>
+          <div><dt>What to do</dt><dd>Complete the form and attach photos and drawings</dd></div>
+        </dl>
+        <div class="route-actions"><a class="btn btn-primary" href="#quote-form">Start the brief</a></div>
+      </article>
+      <article class="route">
+        <h3 class="route-name">Quick start</h3>
+        <dl>
+          <div><dt>Best when</dt><dd>You have a product and a photo, and little else</dd></div>
+          <div><dt>What to do</dt><dd>Message us the product, a photo of the container and the output you want</dd></div>
+        </dl>
+        <div class="route-actions"><a class="btn btn-line" href="https://wa.me/8618358756313">Get a packaging quote by WhatsApp</a></div>
+      </article>
+      <article class="route">
+        <h3 class="route-name">Not a quote</h3>
+        <dl>
+          <div><dt>Best when</dt><dd>You need spare parts, fault help or documents</dd></div>
+          <div><dt>What to do</dt><dd>Use the route built for it, so the right engineer sees it first</dd></div>
+        </dl>
+        <div class="route-actions">
+          <a class="btn btn-line" href="https://www.jvanpack.com/support/after-sales-service/spare-parts/">Order spare parts</a>
+          <a class="btn btn-line" href="https://www.jvanpack.com/contact/?subject=fault">Report a machine fault</a>
+          <a class="btn btn-line" href="https://www.jvanpack.com/request-a-quote/?subject=documentation">Ask for certificates or documents</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. THE SIX-STEP FORM -->
+<section class="section" id="quote-form" aria-labelledby="h-form">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-form">Complete your six-step quote request</h2>
+      <p>Each step opens with one line on why we ask, and each question carries a short note. Choose Not sure, or leave a field empty, when you do not know the answer. Required answers carry an asterisk. You can return to any earlier step before you submit.</p>
+    </div>
+    <div class="form-layout">
+      <ol class="step-rail" id="stepRail" aria-label="Form steps">
+        <li><a href="#s0" aria-current="true"><b>0</b><span>Starting point</span></a></li>
+        <li><a href="#s1"><b>1</b><span>Product properties</span></a></li>
+        <li><a href="#s2"><b>2</b><span>Container</span></a></li>
+        <li><a href="#s3"><b>3</b><span>Closure and label</span></a></li>
+        <li><a href="#s4"><b>4</b><span>Output</span></a></li>
+        <li><a href="#s5"><b>5</b><span>Site and utilities</span></a></li>
+        <li><a href="#s6"><b>6</b><span>Contact and commercial details</span></a></li>
+      </ol>
+
+      <div class="form-main">
+
+        <!-- Starting point -->
+        <section class="step" id="s0" aria-labelledby="t0">
+          <div class="step-head"><span class="step-num" aria-hidden="true">0</span><div><small>Before Step 1</small><h3 id="t0">Starting point</h3></div></div>
+          <p class="why"><b>Type of request</b> (one choice, then the matching list)</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Category</th><th scope="col">Then show</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Individual machine</th><td>Filling machine · capping machine · labeling machine · tube filling and sealing machine · sealing machine · packaging machine (pouch, shrink, counting) · support machine (coding, weighing, line accessories)</td></tr>
+              <tr><th scope="row">Complete packaging line</th><td>Liquid filling line · monoblock filling and capping line · capsule counting line</td></tr>
+              <tr><th scope="row">Not sure, please help me choose</th><td>No further choice needed</td></tr>
+            </tbody>
+          </table></div>
+          <div class="note-box" style="margin-top:16px">
+            <p><b>Note under the field:</b> If you are unsure, choose the last option. An engineer will suggest a starting point based on your product and output. To quote several separate machines, select the main one and list the others under Anything else.</p>
+            <p>When you arrive from another page, we show: "We selected [machine name] because you came from that page. Change it if you are asking about something else."</p>
+          </div>
+        </section>
+
+        <!-- Step 1 -->
+        <section class="step" id="s1" aria-labelledby="t1">
+          <div class="step-head"><span class="step-num" aria-hidden="true">1</span><div><small>Step 1 of 6</small><h3 id="t1">Product properties</h3></div></div>
+          <p class="why"><b>Why we ask:</b> The product decides the metering method more than any other factor, so a filling machine quotation starts here.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Product name *</th><td>Short text</td><td>Honey, face cream, engine oil, capsules. A brand name is not needed.</td></tr>
+              <tr><th scope="row">Form and thickness at filling temperature</th><td>Choose one: thin liquid, medium liquid, thick paste, powder, granule, tablet or capsule, other. Optional viscosity figure</td><td>Thickness narrows the options faster than any other detail. Without a viscosity figure, describe how the product pours.</td></tr>
+              <tr><th scope="row">What the product does</th><td>Tick any: foams, has solid pieces, corrosive, flammable or solvent-based, sensitive to heat, sticky or stringy, makes dust</td><td>Each behavior changes the nozzle, the contact material or the machine design. For solid pieces, add their size. If you tick flammable, we ask for the flash point and any hazardous-zone rating.</td></tr>
+              <tr><th scope="row">Contact material</th><td>Choose one: SS304 is fine, SS316 needed, food or GMP-grade, not sure</td><td>SS304 is standard on our filling machines. SS316 is available when the product needs it.</td></tr>
+              <tr><th scope="row">Industry</th><td>Choose one: food and beverage, cosmetics and personal care, pharmaceutical and nutraceutical, chemical and household, other</td><td>Helps us read your other answers in context.</td></tr>
+              <tr><th scope="row">Product data sheet</th><td>File upload</td><td>A data sheet or safety data sheet answers most of this step in one file.</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+
+        <!-- Step 2 -->
+        <section class="step" id="s2" aria-labelledby="t2">
+          <div class="step-head"><span class="step-num" aria-hidden="true">2</span><div><small>Step 2 of 6</small><h3 id="t2">Container</h3></div></div>
+          <p class="why"><b>Why we ask:</b> The container governs how it is fed, held, closed and labeled.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Container type and material</th><td>Type: bottle, jar, can, tube, pouch or bag, drum or bucket, other. Material: plastic, glass, metal, laminate, other</td><td>Glass and light plastic bottles handle differently, so the material matters as much as the shape.</td></tr>
+              <tr><th scope="row">Shape</th><td>Round, square, flat, oval or irregular</td><td>Round and square bottles need different labelers.</td></tr>
+              <tr><th scope="row">Dimensions in mm</th><td>Shown by container type. Bottles and jars: height, body diameter or width, neck opening. Tubes: diameter, length, cap size. Pouches and bags: width, height, seal or opening size. Drums and buckets: diameter or width, height, opening</td><td>No drawing? A photo with a ruler beside the container is enough to start.</td></tr>
+              <tr><th scope="row">Fill volume or weight per container</th><td>Number with unit: ml, L, g or kg</td><td>Running several sizes? Give the smallest and the largest.</td></tr>
+              <tr><th scope="row">Container sizes to run</th><td>One, two or three, four or more</td><td>Every extra size needs change parts and more planning for changeovers.</td></tr>
+              <tr><th scope="row">Container photos or drawings</th><td>File upload</td><td>Show the container from the side and from above, with the cap on.</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+
+        <!-- Step 3 -->
+        <section class="step" id="s3" aria-labelledby="t3">
+          <div class="step-head"><span class="step-num" aria-hidden="true">3</span><div><small>Step 3 of 6</small><h3 id="t3">Closure and label</h3></div></div>
+          <p class="why"><b>Why we ask:</b> Cap and label details set the capping head, the cap feeder and the label sensor.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Closure type</th><td>Choose one: screw cap, pump dispenser, trigger sprayer, snap-on or press-on cap, twist-off lug cap, ROPP or crown cap, roll-on ball, dropper, other</td><td>Pump and trigger caps need their own feeders. Twist-off lug caps on glass jars can call for vacuum capping.</td></tr>
+              <tr><th scope="row">Cap size and torque</th><td>Diameter and height in mm. Tightening torque, if known</td><td>Give torque only if your cap supplier states a figure. Automatic cappers control torque and detect missing caps.</td></tr>
+              <tr><th scope="row">Inserts and extras</th><td>Tick any: inner plug or liner, foil seal, desiccant, other</td><td>Foil sealing and desiccant are common on capsule and tablet bottles.</td></tr>
+              <tr><th scope="row">Label type</th><td>Choose one: wrap-around, front and back, top, special shape, no label</td><td>Tell us which sides of the container carry a label.</td></tr>
+              <tr><th scope="row">Label material and size</th><td>Clear or opaque. Width and height in mm</td><td>Clear labels need a transparent-label sensor, so tell us if yours are clear.</td></tr>
+              <tr><th scope="row">Date or batch code</th><td>Not needed, date and batch code, other mark</td><td>We can add inline date coding to a line.</td></tr>
+              <tr><th scope="row">Cap and label photos</th><td>File upload</td><td>A photo of the cap from above and below, and a label sample or artwork file, if you have them.</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+
+        <!-- Step 4 -->
+        <section class="step" id="s4" aria-labelledby="t4">
+          <div class="step-head"><span class="step-num" aria-hidden="true">4</span><div><small>Step 4 of 6</small><h3 id="t4">Output</h3></div></div>
+          <p class="why"><b>Why we ask:</b> Output sets the level of automation and the number of heads. On a packaging line price request, every station has to match the same rate.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Target output</th><td>Number per minute or per hour</td><td>Give the real target, not the top speed you hope to buy. A line runs at the speed of its slowest station.</td></tr>
+              <tr><th scope="row">Shifts per day</th><td>One, two or three</td><td>With the target output, this shows how steady the volume is.</td></tr>
+              <tr><th scope="row">Automation level</th><td>Semi-automatic, automatic, not sure</td><td>Semi-automatic suits short runs and frequent product changes. Automatic suits steady daily volume.</td></tr>
+              <tr><th scope="row">Stations needed</th><td>Tick any: bottle infeed or unscrambler, filling, capping, foil sealing, labeling, date coding, check weighing, collection table, carton sealing, counting</td><td>Tick only what you need. Replacing one station on an existing line? Tick that station alone.</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+
+        <!-- Step 5 -->
+        <section class="step" id="s5" aria-labelledby="t5">
+          <div class="step-head"><span class="step-num" aria-hidden="true">5</span><div><small>Step 5 of 6</small><h3 id="t5">Site and utilities</h3></div></div>
+          <p class="why"><b>Why we ask:</b> The electrical supply, the air supply and the layout are settled before manufacture begins.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Electrical supply</th><td>Voltage (V), phase (single or three), frequency (50 or 60 Hz). Or choose Not sure</td><td>Enter your local supply as it is. Our engineers confirm which build matches it before any configuration is agreed.</td></tr>
+              <tr><th scope="row">Compressed air</th><td>Available (add the pressure if known), not available, not sure</td><td>Many machines use air at 0.5 to 0.8 MPa, depending on the model.</td></tr>
+              <tr><th scope="row">Floor space</th><td>Length and width in meters</td><td>Doors, columns and drains change a layout, so a floor plan helps more than a single number.</td></tr>
+              <tr><th scope="row">Room conditions</th><td>Tick any: hot or humid, dusty, washed down often, hazardous or flammable zone, none of these</td><td>A hazardous zone changes the whole build. We assess suitability for the complete installation.</td></tr>
+              <tr><th scope="row">Existing equipment</th><td>Short text</td><td>Name the make of any conveyor, capper or labeler we should connect to, with its height and direction. We assess whether it can join the new setup.</td></tr>
+              <tr><th scope="row">Floor plan and equipment photos</th><td>File upload</td><td>A phone photo of the space or of your current line works if you have no plan.</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+
+        <!-- Step 6 -->
+        <section class="step" id="s6" aria-labelledby="t6">
+          <div class="step-head"><span class="step-num" aria-hidden="true">6</span><div><small>Step 6 of 6</small><h3 id="t6">Contact and commercial details</h3></div></div>
+          <p class="why"><b>Why we ask:</b> Your contact details tell us where to send the reply. Destination, shipping terms and documents shape the quotation.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Your details</th><td>Name *, email *, country *, company, WhatsApp or phone</td><td>WhatsApp is the quickest way for us to ask a follow-up question.</td></tr>
+              <tr><th scope="row">Anything else</th><td>Long text</td><td>Deadlines, special conditions, other machines you need quoted, or questions you want answered first.</td></tr>
+            </tbody>
+          </table></div>
+
+          <details class="opt-details" open>
+            <summary>Commercial details (optional)</summary>
+            <div class="table-wrap"><table class="data">
+              <thead><tr><th scope="col">Field</th><th scope="col">Answer type</th><th scope="col">Note under the field</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Quantity</th><td>One machine or one line, two or three sets, more than three</td><td>One set is a normal order. If repeat orders are likely, tell us.</td></tr>
+                <tr><th scope="row">When it must be running</th><td>Within 1 month, 1 to 3 months, 3 to 6 months, later or planning only</td><td>Eligible stock machines can usually be dispatched within 7 days of order confirmation. Custom machines follow a separate production schedule of 15 to 20 days, plus shipping. A full line proposal states its own date.</td></tr>
+                <tr><th scope="row">Destination country and port</th><td>Short text</td><td>Needed for shipping terms and delivery planning.</td></tr>
+                <tr><th scope="row">Shipping terms</th><td>EXW, FOB, CIF, not sure</td><td>Import duty and local taxes depend on your country. Your freight forwarder can give you that figure.</td></tr>
+                <tr><th scope="row">Payment preference</th><td>Bank transfer, letter of credit, to be discussed</td><td>Terms are written into the quotation and agreed before production starts.</td></tr>
+                <tr><th scope="row">Documents needed</th><td>Tick any: CE certificates, contact material specification, layout drawings, test video and photos, company registration details, other</td><td>CE certificates cover our filling, capping and labeling machines. Ask which documents exist for any other machine.</td></tr>
+                <tr><th scope="row">Branding</th><td>Standard machine, or our branding or custom specification</td><td>We build to customer specification and under customer brands (OEM and ODM).</td></tr>
+                <tr><th scope="row">Budget</th><td>Short text</td><td>Only if you have a figure. It helps us propose the right level and show where a simpler option would do.</td></tr>
+              </tbody>
+            </table></div>
+          </details>
+
+          <div class="ack">
+            <span class="ack-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+            <div>
+              <p>Privacy acknowledgement *</p>
+              <p style="font-weight:400;color:var(--ink)">"I have read the <a class="inline-link" href="https://www.jvanpack.com/privacy-policy/">privacy policy</a>."</p>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <a class="btn btn-primary" href="#quote-form">Submit Your Requirements</a>
+            <p>We reply from jvan@jvanpack.com. If nothing arrives within one working day, check your spam folder or message us on WhatsApp.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FILES AND SAMPLES -->
+<section class="section section-alt" id="files" aria-labelledby="h-files">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-files">Files and samples that make the first reply more exact</h2>
+      <p>Photos and drawings let our engineers check fit before they ask you a follow-up question. Phone photos are fine. One clear photo of the container is enough to get a packaging quote started, even with no drawings at all. Accepted file types, size limits and the number of files are shown beside each upload field.</p>
+    </div>
+    <div class="files-grid">
+      <div>
+        <div class="table-wrap"><table class="data" style="min-width:520px">
+          <thead><tr><th scope="col">File</th><th scope="col">What it tells us</th><th scope="col">Where to attach it</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="width:auto">Product data sheet or safety data sheet</th><td>Thickness, flash point, hazards</td><td>Step 1</td></tr>
+            <tr><th scope="row" style="width:auto">Container photos or drawings</th><td>Dimensions, neck opening, shape</td><td>Step 2</td></tr>
+            <tr><th scope="row" style="width:auto">Cap and label photos or artwork</th><td>Closure type and label sensor</td><td>Step 3</td></tr>
+            <tr><th scope="row" style="width:auto">Floor plan</th><td>Fit and layout</td><td>Step 5</td></tr>
+            <tr><th scope="row" style="width:auto">Photos of existing machines or conveyors</th><td>What the new machine has to join</td><td>Step 5</td></tr>
+          </tbody>
+        </table></div>
+        <p class="files-after">Physical samples give the most reliable result. If you can send them, say so in the final field, and our reply will say where to send the bottle, cap and label.</p>
+      </div>
+      <figure style="margin:0">
+        <div class="upload-panel" role="img" aria-label="Animated prototype of three files being attached to the form.">
+          <div class="up-head"><span>Attachments</span><span>Example</span></div>
+          <div class="up-row"><span class="up-ico">PDF</span><div><div class="up-name">product-data-sheet.pdf</div><div class="up-bar"><b style="--d:0s"></b></div></div><span class="up-step">Step 1</span></div>
+          <div class="up-row"><span class="up-ico">JPG</span><div><div class="up-name">container-side-view.jpg</div><div class="up-bar"><b style="--d:1.3s"></b></div></div><span class="up-step">Step 2</span></div>
+          <div class="up-row"><span class="up-ico">PNG</span><div><div class="up-name">floor-plan.png</div><div class="up-bar"><b style="--d:2.6s"></b></div></div><span class="up-step">Step 5</span></div>
+        </div>
+        <p class="proto-cap">PROTOTYPE · EXAMPLE FILES</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHAT AFFECTS YOUR QUOTATION -->
+<section class="section" id="price" aria-labelledby="h-price">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-price">What affects your quotation</h2></div>
+    <p class="price-lead">One machine name can cover very different prices once the product and container are known. These are the choices that move the figure, for a single filling machine and for a complete line alike. A full line also depends on how its stations work together, so every station is sized to the same output rate.</p>
+    <div class="table-wrap"><table class="data">
+      <thead><tr><th scope="col">Factor</th><th scope="col">How it moves the price</th><th scope="col">What to tell us</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Filling heads</th><td>More heads raise output and cost</td><td>Target output</td></tr>
+        <tr><th scope="row">Automation level</th><td>Semi-automatic, automatic and line builds sit at different levels</td><td>Output, shifts and automation level</td></tr>
+        <tr><th scope="row">Number of stations</th><td>Each added station is its own machine with its own rated speed</td><td>Stations needed</td></tr>
+        <tr><th scope="row">Materials</th><td>SS316 or GMP-grade parts cost more than SS304</td><td>Product behavior and contact material</td></tr>
+        <tr><th scope="row">Product handling</th><td>Heated hoppers, agitators, anti-drip or diving nozzles and vacuum capping add equipment</td><td>Thickness, foam and solid pieces</td></tr>
+        <tr><th scope="row">Container range</th><td>Each extra size needs change parts</td><td>Container sizes to run</td></tr>
+        <tr><th scope="row">Customization and branding</th><td>Special feeders, panel layout and branding change the build</td><td>Branding</td></tr>
+        <tr><th scope="row">Shipping terms</th><td>Terms decide which freight costs the quotation includes</td><td>Shipping terms and destination port</td></tr>
+      </tbody>
+    </table></div>
+    <div class="price-foot">
+      <div>
+        <p>If a simpler, lower-cost machine meets your output and accuracy needs, we recommend it before the larger one.</p>
+      </div>
+      <a class="btn btn-line" href="https://www.jvanpack.com/complete-lines/">Choose between one machine and a full line</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHAT HAPPENS AFTER YOU SUBMIT -->
+<section class="section section-alt" id="next" aria-labelledby="h-next">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-next">What happens after you submit your quote request</h2></div>
+    <div class="next-grid">
+      <div>
+        <ol class="reply-steps" id="replySteps">
+          <li class="on"><strong>Confirmation.</strong> The page confirms receipt and shows your answers, so you can check them.</li>
+          <li><strong>Engineer review.</strong> Our engineers assess the product, container, closure, output and site against what you sent.</li>
+          <li><strong>Follow-up, if needed.</strong> We ask only for what is missing, usually by WhatsApp or email.</li>
+          <li><strong>First reply.</strong> Once we have enough detail, you receive a recommended configuration, the reasons behind the main choices, an indicative price and an estimated delivery schedule. For a complete line, a station diagram and a layout drawing follow for your approval. A project that needs custom design may call for a technical discussion before pricing.</li>
+          <li><strong>Formal quotation.</strong> When the specification is agreed, a formal quotation follows. Drawings are approved before manufacture, and the finished machine runs your own samples before it ships.</li>
+        </ol>
+        <div class="inline-note">
+          <p><strong>Indicative price and formal quotation.</strong> The indicative price shows the level your project sits at. The formal quotation fixes the specification, price and terms. If your container sizes, output target or specification change after the first reply, tell us. We revise the configuration and the figure to match.</p>
+        </div>
+        <p>We usually reply within one working day. A full line proposal can take longer, and it then states a date.</p>
+        <div class="confirm"><small>Confirmation message shown after submission</small><p>"Thank you. Your project brief has reached our team in Wenzhou. We usually reply within one working day. WhatsApp is the quickest way to add anything, and you can send more photos or drawings by replying to our message."</p></div>
+        <div style="margin-top:22px"><a class="btn btn-line" href="https://www.jvanpack.com/about/how-we-work/">Read the full process</a></div>
+      </div>
+      <figure class="layout-fig" style="margin:0">
+        <div class="drawing" role="img" aria-label="Animated prototype of a layout drawing for approval: stations are drawn along a conveyor path, then stamped approved.">
+          <div class="drawing-cap"><span>Prototype · layout drawing</span><span>For approval</span></div>
+          <svg id="layoutSvg" class="stage" viewBox="0 0 520 340" aria-hidden="true">
+            <rect class="ln-soft" x="14" y="14" width="492" height="312"/>
+            <path class="ln-soft" d="M14 150v-40" style="stroke:var(--navy);stroke-width:4"/>
+            <path class="ln-soft" d="M30 30h12M30 30v12M490 30h-12M490 30v12"/>
+            <g class="ln-soft"><rect x="360" y="206" width="14" height="14"/><rect x="360" y="258" width="14" height="14"/></g>
+            <path class="ln-soft" d="M50 240H250V120H470" stroke-dasharray="5 5"/>
+            <rect class="ln box" style="--i:0" pathLength="1" x="62" y="218" width="58" height="44"/>
+            <rect class="ln box" style="--i:1" pathLength="1" x="140" y="218" width="58" height="44"/>
+            <rect class="ln box" style="--i:2" pathLength="1" x="221" y="168" width="58" height="44"/>
+            <rect class="ln box" style="--i:3" pathLength="1" x="301" y="98" width="58" height="44"/>
+            <rect class="ln box" style="--i:4" pathLength="1" x="400" y="98" width="58" height="44"/>
+            <g class="st-label" style="text-anchor:middle">
+              <text x="91" y="244" dy="3" text-anchor="middle">INFEED</text>
+              <text x="169" y="244" dy="3" text-anchor="middle">FILL</text>
+              <text x="250" y="194" dy="3" text-anchor="middle">CAP</text>
+              <text x="330" y="124" dy="3" text-anchor="middle">LABEL</text>
+              <text x="429" y="124" dy="3" text-anchor="middle">OUT</text>
+            </g>
+            <circle class="fill-acc" r="4.5"><animateMotion dur="6s" repeatCount="indefinite" path="M50,240 H250 V120 H470"/></circle>
+            <g class="ln-soft"><path d="M40 300h440M40 294v12M480 294v12"/><path d="M500 60v220M494 60h12M494 280h12"/></g>
+            <text class="st-label" x="260" y="318">L (m)</text>
+            <text class="st-label" x="486" y="176" transform="rotate(90 486 176)">W (m)</text>
+            <g class="stamp"><rect x="52" y="52" width="130" height="40" fill="none" stroke="var(--orange)" stroke-width="2.4" transform="rotate(-6 117 72)"/><text x="117" y="78" text-anchor="middle" transform="rotate(-6 117 72)" style="font-family:var(--font-cond);font-weight:700;font-size:22px;letter-spacing:.12em" fill="var(--orange)">APPROVED</text></g>
+          </svg>
+        </div>
+        <p class="proto-cap">PROTOTYPE · EXAMPLE LAYOUT</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRIVACY -->
+<section class="section" id="privacy" aria-labelledby="h-privacy">
+  <div class="wrap">
+    <div class="privacy-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:24px"><h2 id="h-privacy">Your drawings and product details stay with our team</h2></div>
+        <p style="font-size:18px;max-width:62ch">A brief often holds a formula, a drawing or a plant layout. We use what you send to specify and quote your machine, and for nothing else. We do not sell, rent or lease personal information, and the privacy policy sets out the detail.</p>
+        <p style="font-size:18px;max-width:62ch">If your company needs a confidentiality agreement before you share drawings, say so in the form or on WhatsApp, and we will reply before you upload anything.</p>
+        <div style="margin-top:8px"><a class="btn btn-line" href="https://www.jvanpack.com/privacy-policy/">Read the privacy policy</a></div>
+      </div>
+      <figure style="margin:0">
+        <div class="vault" role="img" aria-label="Animated prototype: three documents slide into a locked vault.">
+          <svg viewBox="0 0 340 220" aria-hidden="true">
+            <g class="doc-a"><rect class="ln" x="24" y="30" width="62" height="78" rx="2"/><path class="ln-soft" d="M36 52h38M36 66h38M36 80h24"/></g>
+            <g class="doc-b"><rect class="ln" x="24" y="118" width="62" height="78" rx="2"/><path class="ln-soft" d="M36 140h38M36 154h30M36 168h38"/></g>
+            <g class="doc-c"><rect class="ln" x="98" y="74" width="62" height="78" rx="2"/><path class="ln-acc" d="M110 96h38M110 110h24"/></g>
+            <rect class="ln" x="196" y="64" width="120" height="104" rx="3"/>
+            <rect class="fill-w" x="196" y="64" width="120" height="104" rx="3"/>
+            <path class="lock-shackle ln" d="M232 100v-14a22 22 0 0 1 48 0v14"/>
+            <rect class="fill-acc" x="226" y="100" width="60" height="44" rx="3"/>
+            <circle cx="256" cy="120" r="5" fill="#fff"/><path d="M256 124v10" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="vault-cap">Prototype · files held by the project team</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section class="section section-alt" id="faq" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-faq">Questions before you submit</h2></div>
+    <div class="faq">
+      <details open>
+        <summary>How do I request a packaging machine quote if I only know my product?</summary>
+        <div class="faq-a"><p>Fill in the five required answers and add whatever else you know. The engineers ask for the rest, usually by WhatsApp or email. If a form is too much, use the <a class="inline-link" href="#routes">quick start route</a> and send three things by message.</p></div>
+      </details>
+      <details>
+        <summary>Do I have to complete all six steps?</summary>
+        <div class="faq-a"><p>No. The form has <a class="inline-link" href="#quote-form">six steps</a>, but only five answers are required, along with the privacy acknowledgement. Each extra answer makes the first reply more exact, and a short brief still gets a reply.</p></div>
+      </details>
+      <details>
+        <summary>What is the difference between a filling machine quotation and a packaging line price request?</summary>
+        <div class="faq-a"><p>A filling machine quotation covers one station and depends mostly on the product, the fill volume and the number of heads. A packaging line price request covers a <a class="inline-link" href="https://www.jvanpack.com/complete-lines/">complete line</a>: every station you choose, from bottle infeed to collection, sized for one output rate. Choose the right option in the first field, or pick Not sure and we advise.</p></div>
+      </details>
+      <details>
+        <summary>Can I get a packaging quote without using the form?</summary>
+        <div class="faq-a"><p>Yes. <a class="inline-link" href="https://wa.me/8618358756313">Message us on WhatsApp</a> with your product, a photo of the container and your target output. The engineers reply with questions or a first recommendation. The form gives the most exact reply because it also covers the site and the commercial terms.</p></div>
+      </details>
+      <details>
+        <summary>Can I ask for more than one machine?</summary>
+        <div class="faq-a"><p>Yes. Select the main machine in the first field and list the others under Anything else. If the machines work together, a <a class="inline-link" href="https://www.jvanpack.com/complete-lines/">complete line</a> may be the better route.</p></div>
+      </details>
+      <details>
+        <summary>Is the price in the first reply final?</summary>
+        <div class="faq-a"><p>No. The first reply gives an <a class="inline-link" href="https://www.jvanpack.com/support/faq/#topic-quote">indicative price</a> with a suggested configuration. A formal quotation follows once the specification is agreed, and your quotation and contract set the terms for your order.</p></div>
+      </details>
+      <details>
+        <summary>How soon will I hear back?</summary>
+        <div class="faq-a"><p>We usually reply within one working day on China Standard Time (UTC+8). Eligible stock machines can usually be dispatched within 7 days of order confirmation. Custom machines are built in 15 to 20 days, plus <a class="inline-link" href="https://www.jvanpack.com/support/shipping-lead-times/">shipping to your port</a>.</p></div>
+      </details>
+      <details>
+        <summary>Can I send physical samples?</summary>
+        <div class="faq-a"><p>Yes, and samples give the most reliable result. Say so in the form, and we reply with where to send the bottle, cap and label. For the finished machine, we <a class="inline-link" href="https://www.jvanpack.com/about/how-we-work/">run your own samples</a> before shipment and send photos and video.</p></div>
+      </details>
+      <details>
+        <summary>Can I use this form for spare parts or a machine fault?</summary>
+        <div class="faq-a"><p>No. Both have a route of their own, and the right engineer sees them sooner there. <a class="inline-link" href="https://www.jvanpack.com/support/after-sales-service/spare-parts/">Spare parts</a> need the model, the serial number and a photo of the part. <a class="inline-link" href="https://www.jvanpack.com/contact/?subject=fault">A fault</a> needs a short video.</p></div>
+      </details>
+    </div>
+    <div class="faq-all"><a class="btn btn-line" href="https://www.jvanpack.com/support/faq/">See all FAQs</a></div>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section class="section" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:20px"><h2 id="h-contact">Prefer to talk first?</h2></div>
+        <p class="company">Wenzhou Jvan Machinery Co., Ltd.</p>
+        <p class="contact-tz">We work on China Standard Time (UTC+8). WhatsApp is the quickest route.</p>
+        <div style="margin-top:18px"><a class="btn btn-line" href="https://www.jvanpack.com/contact/">Full contact options</a></div>
+      </div>
+      <ul class="contact-list">
+        <li><span class="k">Telephone</span><span class="v">+86-183-5875-6313</span><span class="d"><a class="btn btn-line btn-sm" href="tel:+8618358756313">Call now</a></span></li>
+        <li><span class="k">WhatsApp</span><span class="v">+86-183-5875-6313</span><span class="d"><a class="btn btn-line btn-sm" href="https://wa.me/8618358756313">Chat on WhatsApp</a></span></li>
+        <li><span class="k">Email</span><span class="v">jvan@jvanpack.com</span><span class="d"><a class="btn btn-line btn-sm" href="mailto:jvan@jvanpack.com">Send an email</a></span></li>
+        <li><span class="k">Address</span><span class="v">Room 707, RenHui Building, No.995 Ouhai Avenue, Ouhai District, Wenzhou City 325000, Zhejiang Province, China</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 11. SUBMIT YOUR REQUIREMENTS -->
+<section class="cta section-navy on-navy" id="submit" aria-labelledby="h-cta">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="sec-head" style="margin-bottom:20px"><h2 id="h-cta">Tell us what you are packaging</h2></div>
+      <p class="body">Start with your product, your container and the output you need per hour. Our engineers use these three details to recommend a starting configuration and an indicative price. If you would rather talk first, message us and we will start your quote by chat.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#quote-form">Submit Your Requirements</a>
+        <a class="btn btn-line-light" href="https://wa.me/8618358756313">Message us on WhatsApp</a>
+      </div>
+      <p class="micro">Photos, drawings and samples all help. We usually reply within one working day.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-brand" href="https://www.jvanpack.com/" aria-label="Jvan Pack home">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1.5 30.5 12 25.5 30h-19L1.5 12z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 9.5 23 14.8 20.6 23.5h-9.2L9 14.8z" fill="#e8632b"/></svg>
+          Jvan Pack
+        </a>
+        <address>Wenzhou Jvan Machinery Co., Ltd.<br>Room 707, RenHui Building, No.995 Ouhai Avenue, Ouhai District, Wenzhou City 325000, Zhejiang Province, China</address>
+      </div>
+      <nav aria-label="Machines">
+        <h4>Machines</h4>
+        <ul>
+          <li><a href="https://www.jvanpack.com/products/">Products</a></li>
+          <li><a href="https://www.jvanpack.com/complete-lines/">Complete Lines</a></li>
+          <li><a href="https://www.jvanpack.com/solutions/">Solutions</a></li>
+          <li><a href="#quote-form">Request a Quote</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Support">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://www.jvanpack.com/support/faq/">FAQ</a></li>
+          <li><a href="https://www.jvanpack.com/support/after-sales-service/spare-parts/">Spare parts</a></li>
+          <li><a href="https://www.jvanpack.com/about/how-we-work/">How we work</a></li>
+          <li><a href="https://www.jvanpack.com/privacy-policy/">Privacy policy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+8618358756313">+86-183-5875-6313</a></li>
+          <li><a href="https://wa.me/8618358756313">WhatsApp</a></li>
+          <li><a href="mailto:jvan@jvanpack.com">jvan@jvanpack.com</a></li>
+          <li><a href="https://www.jvanpack.com/contact/">Full contact options</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Wenzhou Jvan Machinery Co., Ltd. All rights reserved.</p>
+      <p>China Standard Time (UTC+8)</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  /* mobile menu */
+  var tg = document.querySelector('.menu-toggle'), nav = document.getElementById('primary-nav');
+  if (tg && nav) {
+    tg.addEventListener('click', function(){
+      var o = tg.getAttribute('aria-expanded') === 'true';
+      tg.setAttribute('aria-expanded', String(!o));
+      nav.classList.toggle('open', !o);
+    });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) { tg.setAttribute('aria-expanded','false'); nav.classList.remove('open'); } });
+  }
+
+  /* hero: filling line animation */
+  (function(){
+    var holder = document.getElementById('bottles');
+    if (!holder) return;
+    var stream = document.getElementById('stream'), capHead = document.getElementById('capHead');
+    var N = 6, GAP = 100, SPAN = N * GAP, FILL = 190, CAP = 320, LAB = 430, Y = 218, SPEED = 38;
+    var bottles = [];
+    function mk(tag, attrs){ var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+    for (var i = 0; i < N; i++) {
+      var g = mk('g', {});
+      var liquid = mk('rect', {x:-11, y:Y-2, width:22, height:0, fill:'#e8632b', opacity:'.9'});
+      var body = mk('path', {d:'M-13 '+(Y)+'V'+(Y-46)+'Q-13 '+(Y-54)+' -6 '+(Y-58)+'V'+(Y-70)+'H6V'+(Y-58)+'Q13 '+(Y-54)+' 13 '+(Y-46)+'V'+Y+'Z', fill:'rgba(255,255,255,.07)', stroke:'rgba(255,255,255,.85)', 'stroke-width':'1.5', 'stroke-linejoin':'round'});
+      var label = mk('rect', {x:-13, y:Y-40, width:26, height:22, fill:'rgba(255,255,255,.9)', opacity:'0'});
+      var lt = mk('path', {d:'M-8 '+(Y-32)+'h16M-8 '+(Y-26)+'h10', stroke:'#172a52', 'stroke-width':'1.6', opacity:'0'});
+      var cap = mk('rect', {x:-8, y:Y-76, width:16, height:7, rx:1.5, fill:'#e8632b', opacity:'0'});
+      g.appendChild(liquid); g.appendChild(body); g.appendChild(label); g.appendChild(lt); g.appendChild(cap);
+      holder.appendChild(g);
+      bottles.push({g:g, liquid:liquid, label:label, lt:lt, cap:cap, i:i});
+    }
+    function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function frame(t){
+      var streamOn = 0, capOn = 0;
+      for (var i = 0; i < N; i++) {
+        var b = bottles[i];
+        var x = ((t * SPEED + i * GAP) % SPAN) - 40;
+        b.g.setAttribute('transform', 'translate(' + x.toFixed(1) + ' 0)');
+        var fp = clamp((x - (FILL - 34)) / 68);
+        var h = 40 * fp;
+        b.liquid.setAttribute('y', (Y - 2 - h).toFixed(1));
+        b.liquid.setAttribute('height', h.toFixed(1));
+        if (Math.abs(x - FILL) < 30 && fp < 1) streamOn = 1;
+        var cp = x > CAP - 4 ? 1 : 0;
+        b.cap.setAttribute('opacity', cp);
+        if (Math.abs(x - CAP) < 16) capOn = 1 - Math.abs(x - CAP) / 16;
+        var lp = clamp((x - (LAB - 26)) / 44);
+        b.label.setAttribute('opacity', lp > 0 ? 1 : 0);
+        b.label.setAttribute('width', (26 * lp).toFixed(1));
+        b.label.setAttribute('x', (-13).toString());
+        b.lt.setAttribute('opacity', lp > .95 ? 1 : 0);
+      }
+      stream.style.opacity = streamOn;
+      capHead.setAttribute('transform', 'translate(0 ' + (capOn * 22).toFixed(1) + ')');
+    }
+    if (reduce) { frame(3.1); return; }
+    var start = null, run = true;
+    function loop(ts){ if (start === null) start = ts; if (run) frame((ts - start) / 1000); requestAnimationFrame(loop); }
+    var io = new IntersectionObserver(function(es){ run = es[0].isIntersecting; });
+    io.observe(document.getElementById('lineSvg'));
+    requestAnimationFrame(loop);
+  })();
+
+  /* form prototype */
+  (function(){
+    var rowsEl = document.getElementById('devRows'); if (!rowsEl) return;
+    var stepEl = document.getElementById('devStep'), titleEl = document.getElementById('devTitle'), progEl = document.getElementById('devProg'), doneEl = document.getElementById('devDone');
+    var FLOW = [
+      {t:'Product properties', r:[{l:'Product name *',k:'type',v:'Face cream'},{l:'Form and thickness at filling temperature',k:'chips',o:['Thin liquid','Medium liquid','Thick paste'],s:2},{l:'Product data sheet',k:'file',v:'data-sheet.pdf'}]},
+      {t:'Container', r:[{l:'Container type',k:'chips',o:['Bottle','Jar','Tube'],s:1},{l:'Height in mm',k:'type',v:'92'},{l:'Container photos or drawings',k:'file',v:'jar-side.jpg'}]},
+      {t:'Closure and label', r:[{l:'Closure type',k:'chips',o:['Screw cap','Pump dispenser','Snap-on'],s:0},{l:'Cap diameter in mm',k:'type',v:'58'},{l:'Label type',k:'chips',o:['Wrap-around','Front and back'],s:1}]},
+      {t:'Output', r:[{l:'Target output per hour',k:'type',v:'1,200'},{l:'Shifts per day',k:'chips',o:['One','Two','Three'],s:0},{l:'Automation level',k:'chips',o:['Semi-automatic','Automatic','Not sure'],s:1}]},
+      {t:'Site and utilities', r:[{l:'Electrical supply',k:'type',v:'220 V, single, 50 Hz'},{l:'Compressed air',k:'chips',o:['Available','Not available','Not sure'],s:0},{l:'Floor plan and equipment photos',k:'file',v:'floor-plan.png'}]},
+      {t:'Contact and commercial details', r:[{l:'Name *',k:'type',v:'Maria Costa'},{l:'Email *',k:'type',v:'maria@example.com'},{l:'Country *',k:'type',v:'Portugal'}]}
+    ];
+    var timers = [], idx = 0, alive = false;
+    function after(ms, fn){ var id = setTimeout(fn, ms); timers.push(id); }
+    function clear(){ timers.forEach(clearTimeout); timers = []; }
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    function build(step, n){
+      stepEl.textContent = 'Step ' + (n + 1) + ' of 6';
+      titleEl.textContent = step.t;
+      var spans = progEl.children;
+      for (var i = 0; i < spans.length; i++) spans[i].className = i <= n ? 'on' : '';
+      rowsEl.innerHTML = step.r.map(function(r){
+        var inner = '';
+        if (r.k === 'type') inner = '<div class="dev-input"><span class="tx"></span><span class="caret"></span></div>';
+        else if (r.k === 'chips') inner = '<div class="dev-chips">' + r.o.map(function(o){ return '<span class="dev-chip">' + esc(o) + '</span>'; }).join('') + '</div>';
+        else inner = '<div class="dev-file"><span>' + esc(r.v) + '</span><span class="bar"><b></b></span><span class="ok">OK</span></div>';
+        return '<div class="dev-row"><span class="dev-label">' + esc(r.l) + '</span>' + inner + '</div>';
+      }).join('');
+    }
+    function play(n){
+      if (!alive) return;
+      doneEl.classList.remove('show');
+      var step = FLOW[n]; build(step, n);
+      var els = rowsEl.children;
+      step.r.forEach(function(r, i){
+        var el = els[i], t0 = 500 + i * 1050;
+        if (r.k === 'type') {
+          var tx = el.querySelector('.tx'), c = 0;
+          after(t0, function type(){ if (!alive) return; c++; tx.textContent = r.v.slice(0, c); if (c < r.v.length) after(55, type); });
+        } else if (r.k === 'chips') {
+          after(t0 + 250, function(){ el.querySelectorAll('.dev-chip')[r.s].classList.add('sel'); });
+        } else {
+          after(t0, function(){ el.querySelector('.bar b').style.width = '100%'; });
+          after(t0 + 950, function(){ el.querySelector('.ok').style.opacity = 1; });
+        }
+      });
+      after(4400, function(){
+        if (n < FLOW.length - 1) play(n + 1);
+        else {
+          var spans = progEl.children; for (var i = 0; i < spans.length; i++) spans[i].className = 'on';
+          doneEl.classList.add('show');
+          after(4200, function(){ play(0); });
+        }
+      });
+    }
+    function staticView(){ build(FLOW[1], 1); var els = rowsEl.children;
+      els[0].querySelectorAll('.dev-chip')[1].classList.add('sel');
+      els[1].querySelector('.tx').textContent = '92'; els[1].querySelector('.caret').style.display = 'none';
+      els[2].querySelector('.bar b').style.width = '100%'; els[2].querySelector('.ok').style.opacity = 1; }
+    if (reduce) { staticView(); return; }
+    build(FLOW[0], 0);
+    var io = new IntersectionObserver(function(es){
+      if (es[0].isIntersecting && !alive) { alive = true; play(0); }
+      else if (!es[0].isIntersecting && alive) { alive = false; clear(); }
+    }, {threshold:.25});
+    io.observe(document.getElementById('device'));
+  })();
+
+  /* upload panel: animate the bars */
+  (function(){
+    if (reduce) return;
+    var style = document.createElement('style');
+    style.textContent = '@keyframes upfill{0%{width:0}35%,88%{width:100%}100%{width:0}}.up-bar b{animation:upfill 7s ease-in-out infinite;animation-delay:var(--d,0s)}';
+    document.head.appendChild(style);
+  })();
+
+  /* reply steps highlight */
+  (function(){
+    var items = document.querySelectorAll('#replySteps li'); if (!items.length) return;
+    if (reduce) { items.forEach(function(li){ li.classList.add('on'); }); return; }
+    var i = 0, id = null;
+    function tick(){ items.forEach(function(li, k){ li.classList.toggle('on', k <= i); }); i = (i + 1) % (items.length + 1); if (i === 0) { items.forEach(function(li){ li.classList.remove('on'); }); i = 0; } }
+    function startT(){ if (!id) { tick(); id = setInterval(tick, 2200); } }
+    function stopT(){ clearInterval(id); id = null; }
+    var io = new IntersectionObserver(function(es){ es[0].isIntersecting ? startT() : stopT(); }, {threshold:.2});
+    io.observe(document.getElementById('replySteps'));
+  })();
+  if (reduce) { var ls = document.getElementById('layoutSvg'); if (ls && ls.pauseAnimations) ls.pauseAnimations(); }
+
+  /* step rail scroll spy */
+  (function(){
+    var links = document.querySelectorAll('#stepRail a'); if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { links.forEach(function(a){ a.removeAttribute('aria-current'); }); map[e.target.id].setAttribute('aria-current','true'); } });
+    }, {rootMargin:'-30% 0px -60% 0px'});
+    Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+})();
+</script>
+
+</body></html>
